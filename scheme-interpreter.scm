@@ -1,5 +1,7 @@
+#lang racket
 ;; this is the function to start the interpreter
-(load "scheme-interpreter-operations")
+
+(load "scheme-interpreter-operations.scm")
 (load "scheme-interpreter-types.scm")
 
 (define (interpret code)
@@ -22,3 +24,6 @@
           (else (error "Unknown expression type -- EVAL" exp))))
   (define global-env (setup-environment))
   (eval-exp code global-env))
+
+(define code1 '(+ 1 2))
+

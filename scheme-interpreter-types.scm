@@ -1,5 +1,4 @@
 ;; this file represents all possible types of expressions
-
 ; self-evaluating expression
 (define (self-evaluating? expression)
     (cond ((number? expression) #t)

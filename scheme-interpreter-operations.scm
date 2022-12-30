@@ -1,11 +1,9 @@
 ;; this file contains all operations - helper functions
-(load "scheme-interpreter-types.scm")
-(load "scheme-interpreter-operations")
 
 ; retrieves the value of a variable in a specific environment
 (define (lookup-variable-value var env)
     (define (env-loop env)
-      (define (scan vars vals)
+      (define (scan vars valsс)
         (cond ((null? vars) (env-loop (enclosing-environment env)))
               ((eq? var (car vars)) (car vals))
               (else (scan (cdr vars) (cdr vals)))))
