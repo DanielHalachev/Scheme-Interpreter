@@ -71,15 +71,15 @@ read-syntax: illegal use of `[`
       (cons (f (car l)) (map f (cdr l)))))
 ```
 - обработване на грешки: в началото беше замислено да бъдат обработвани някои грешки чрез функцията `error`, която в R5RS се имплементира така: 
-```scheme
-(define error #f)
-    (call-with-current-continuation (lambda (k)
-              (set! error
-                (lambda error-arguments
-                  (display ">>>> ERROR ")
-                  (newline)
-                  (k error-arguments)))
-              'done)) 
-```
-В процеса на работа не разбрах употребата на `call-with-current-continuation` и се отказах от обработката на грешки, за да не използвам в решението си код, който не знам как работи. 
+  ```scheme
+  (define error #f)
+      (call-with-current-continuation (lambda (k)
+                (set! error
+                  (lambda error-arguments
+                    (display ">>>> ERROR ")
+                    (newline)
+                    (k error-arguments)))
+                'done)) 
+  ```
+  В процеса на работа не разбрах употребата на `call-with-current-continuation` и се отказах от обработката на грешки, за да не използвам в решението си код, който не знам как работи. 
 - разделяне на кода на модули и файлове - резултатният код е дълъг и се опитах да го разделя на два файла - един за работата със среди, другият - за останалата част. Това доведе до циклична зависимост (circular dependency), която не можах да разреша. 
